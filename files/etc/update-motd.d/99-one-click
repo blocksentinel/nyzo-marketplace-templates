@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Configured as part of the DigitalOcean 1-Click Image build process
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+********************************************************************************
+
+Welcome to Block Sentinel's 1-Click Nyzo Verifier Droplet.
+To keep this Droplet secure, the UFW firewall is enabled.
+All ports are BLOCKED except 22 (SSH) and 9444 (Nyzo).
+
+Nyzo is an open-source, highly decentralized, democratic, and highly efficient
+blockchain. The block time is seven seconds, and the system scales well to high
+transaction volumes.
+
+On the server:
+  * Verifier settings and private keys are located in /var/lib/nyzo/production
+    Please make sure to back up your private key and never share it with anyone!
+  * The verifier source code is located in /var/lib/nyzo/verifier
+
+Additional references:
+  * https://nyzo.io
+  * https://tech.nyzo.co
+
+Join us on Discord at https://discord.gg/REzrUZG
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF
