@@ -6,5 +6,6 @@
 
 ufw limit ssh
 ufw allow 9444/tcp
+ufw allow 9446/udp
 
 ufw --force enable

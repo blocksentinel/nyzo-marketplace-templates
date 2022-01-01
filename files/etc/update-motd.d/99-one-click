@@ -8,7 +8,7 @@ cat <<EOF
 
 Welcome to Block Sentinel's 1-Click Nyzo Verifier Droplet.
 To keep this Droplet secure, the UFW firewall is enabled.
-All ports are BLOCKED except 22 (SSH) and 9444 (Nyzo).
+All ports are BLOCKED except 22 (SSH), 9444/tcp (Nyzo) and 9446/udp (Nyzo).
 
 Nyzo is an open-source, highly decentralized, democratic, and highly efficient
 blockchain. The block time is seven seconds, and the system scales well to high
