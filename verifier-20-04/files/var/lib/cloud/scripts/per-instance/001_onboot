@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Scripts in this directory will be executed by cloud-init on the first boot of droplets
+# created from your image.  Things like generating passwords, configuration requiring IP address
+# or other items that will be unique to each instance should be done in scripts here.
+
+DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get -qqy upgrade
+
+cd /var/lib/nyzo/verifier
+git pull
+./gradlew build
+
+mkdir /var/lib/nyzo/production
+cp trusted_entry_points /var/lib/nyzo/production
+
+chmod +x nyzoVerifier.sh
+./nyzoVerifier.sh
+cp nyzoVerifier.conf /etc/supervisor/conf.d/
+
+supervisorctl reload
+
+# Remove the ssh force logout command
+sed -e '/Match User root/d' \
+    -e '/.*ForceCommand.*droplet.*/d' \
+    -i /etc/ssh/sshd_config
+
+systemctl restart ssh

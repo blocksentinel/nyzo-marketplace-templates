@@ -1,7 +1,7 @@
 {
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
-    "image_name": "nyzo-verifier-20-04-snapshot-{{timestamp}}",
+    "image_name": "nyzo-verifier-18-04-snapshot-{{timestamp}}",
     "apt_packages": "haveged openjdk-8-jdk supervisor",
     "application_name": "Nyzo Verifier",
     "application_version": ""
@@ -11,7 +11,7 @@
     {
       "type": "digitalocean",
       "api_token": "{{user `do_token`}}",
-      "image": "ubuntu-20-04-x64",
+      "image": "ubuntu-18-04-x64",
       "region": "nyc3",
       "size": "s-1vcpu-2gb",
       "ssh_username": "root",
@@ -27,12 +27,12 @@
     },
     {
       "type": "file",
-      "source": "files/etc/",
+      "source": "verifier-18-04/files/etc/",
       "destination": "/etc/"
     },
     {
       "type": "file",
-      "source": "files/var/",
+      "source": "verifier-18-04/files/var/",
       "destination": "/var/"
     },
     {
@@ -61,11 +61,11 @@
         "LC_CTYPE=en_US.UTF-8"
       ],
       "scripts": [
-        "scripts/01-verifier.sh",
-        "scripts/02-ufw-verifier.sh",
-        "scripts/03-force-ssh-logout.sh",
-        "scripts/90-cleanup.sh",
-        "scripts/99-img-check.sh"
+        "common/scripts/01-verifier.sh",
+        "common/scripts/02-ufw-verifier.sh",
+        "common/scripts/03-force-ssh-logout.sh",
+        "common/scripts/90-cleanup.sh",
+        "common/scripts/99-img-check.sh"
       ]
     }
   ]
