@@ -1,6 +1,6 @@
 # Nyzo 1-Click Droplet Templates
 
-![GitHub](https://img.shields.io/github/license/blocksentinel/nyzo-verifier-one-click)
+![GitHub](https://img.shields.io/github/license/blocksentinel/nyzo-one-click)
 
 This repository contains the build scripts for the Nyzo 1-Click Apps, available on the DigitalOcean Marketplace.
 
