@@ -1,6 +1,8 @@
 #!/bin/sh
-#
-# Configured as part of the DigitalOcean 1-Click Image build process
+
+# Nyzo Marketplace Templates
+# © 2022 Block Sentinel LLC.
+# This code is licensed under Apache 2.0 license (see LICENSE for details)
 
 cat <<EOF
 ********************************************************************************

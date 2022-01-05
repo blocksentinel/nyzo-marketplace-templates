@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Nyzo 1-Click Droplet Templates
+# Nyzo Marketplace Templates
 # © 2022 Block Sentinel LLC.
 # This code is licensed under Apache 2.0 license (see LICENSE for details)
 

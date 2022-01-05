@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Scripts in this directory will be executed by cloud-init on the first boot of droplets
-# created from your image.  Things like generating passwords, configuration requiring IP address
-# or other items that will be unique to each instance should be done in scripts here.
+# Nyzo Marketplace Templates
+# © 2022 Block Sentinel LLC.
+# This code is licensed under Apache 2.0 license (see LICENSE for details)
 
 DEBIAN_FRONTEND=noninteractive
 apt-get update
