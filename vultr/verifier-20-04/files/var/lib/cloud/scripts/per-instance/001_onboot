@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Nyzo Marketplace Templates
+# © 2022 Block Sentinel LLC.
+# This code is licensed under Apache 2.0 license (see LICENSE for details)
+
+################################################
+# Update system packages
+
+DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get -qqy upgrade
+
+################################################
+# Build Nyzo Verifier
+
+cd /var/lib/nyzo/verifier
+git pull
+./gradlew build
+
+################################################
+# Configure Nyzo Verifier
+
+mkdir /var/lib/nyzo/production
+cp trusted_entry_points /var/lib/nyzo/production
+
+chmod +x nyzoVerifier.sh
+./nyzoVerifier.sh
+cp nyzoVerifier.conf /etc/supervisor/conf.d/
+
+supervisorctl reload
+
+################################################
+# Enable SSH logins
+
+sed -e '/Match User root/d' \
+    -e '/.*ForceCommand.*droplet.*/d' \
+    -i /etc/ssh/sshd_config
+
+systemctl restart ssh

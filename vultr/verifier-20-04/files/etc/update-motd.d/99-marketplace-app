@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Nyzo Marketplace Templates
+# © 2022 Block Sentinel LLC.
+# This code is licensed under Apache 2.0 license (see LICENSE for details)
+
+cat <<EOF
+********************************************************************************
+
+Welcome to Block Sentinel's Nyzo Verifier instance.
+To keep this instance secure, the UFW firewall is enabled.
+All ports are BLOCKED except 22 (SSH), 9444/tcp (Nyzo) and 9446/udp (Nyzo).
+
+Nyzo is an open-source, highly decentralized, democratic, and highly efficient
+blockchain. The block time is seven seconds, and the system scales well to high
+transaction volumes.
+
+On the server:
+  * Verifier settings and private keys are located in /var/lib/nyzo/production
+    Please make sure to back up your private key and never share it with anyone!
+  * The verifier source code is located in /var/lib/nyzo/verifier
+
+Additional references:
+  * https://nyzo.io
+  * https://tech.nyzo.co
+
+Join us on Discord at https://discord.gg/REzrUZG
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF
